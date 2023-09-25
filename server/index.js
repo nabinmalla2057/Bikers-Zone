@@ -15,6 +15,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use((err, req, res, next) => {
+  const errMsg = err ? err.toString() : "Something went wrong";
+  res.status(500).json({ data: "", msg: errMsg });
+});
+
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
 });
