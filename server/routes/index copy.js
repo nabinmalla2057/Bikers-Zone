@@ -1,10 +1,8 @@
 const router = require("express").Router();
-const userRouter = require("../modules/users/");
+const apiRouter = require("./routes.api");
 
-router.get("/", (req, res, next) => {
-  res.json({ dat: "", msg: "success" });
-});
-router.use("/users", userRouter);
+router.use("/api/v1", apiRouter);
+
 router.all("*", (req, res, next) => {
   try {
     res.status(404).json({ data: "", msg: "Routes not found" });
