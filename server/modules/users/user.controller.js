@@ -1,3 +1,9 @@
 const Model = require("./user.model");
 
-module.exports = {};
+const create = (payload) => {
+  return Model.create(payload);
+};
+
+const login = (email, password) => {};
+
+module.exports = { create, login };
