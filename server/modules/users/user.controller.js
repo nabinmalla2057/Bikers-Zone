@@ -1,6 +1,12 @@
+const bcrypt = require("bcrypt");
+const saltRound = 10;
+
 const Model = require("./user.model");
 
-const create = (payload) => {
+const create = async (payload) => {
+  const { password, ...rest } = payload;
+  const result = await bcrypt.hash(myPlaintextPassword, saltRound);
+
   return Model.create(payload);
 };
 
