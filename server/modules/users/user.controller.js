@@ -5,9 +5,9 @@ const Model = require("./user.model");
 
 const create = async (payload) => {
   const { password, ...rest } = payload;
-  const result = await bcrypt.hash(myPlaintextPassword, saltRound);
+  rest.password = await bcrypt.hash(password, saltRound);
 
-  return Model.create(payload);
+  return Model.create(rest);
 };
 
 const login = (email, password) => {};

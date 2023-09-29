@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const Controller = require("./user.controller");
 
 router.post("/", async (req, res, next) => {
   try {
